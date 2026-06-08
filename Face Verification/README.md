@@ -35,6 +35,21 @@ The pipeline follows these steps:
 - If distance < threshold → Same person  
 - If distance ≥ threshold → Different persons  
 
+## Benchmark Evaluation (LFW Dataset)
+
+To objectively evaluate the system beyond manually selected images, the pipeline was tested on the official **Labeled Faces in the Wild (LFW)** benchmark — a standard dataset for face verification containing 1,000 pairs (500 matched, 500 mismatched).
+
+| Metric | Value |
+|--------|-------|
+| Pairs Evaluated | 1,000 |
+| Threshold | 0.85 |
+| Accuracy | 90.70% |
+| FAR (False Accept Rate) | 0.00% |
+| FRR (False Reject Rate) | 18.60% |
+
+**FAR = 0%** means the system never falsely matched two different people — a critical property for identity verification use cases.  
+The conservative threshold (0.85) prioritizes security over recall, which explains the higher FRR.
+
 ## Tools & Libraries
 
 - Python  
@@ -51,7 +66,7 @@ The pipeline follows these steps:
   - Preprocessing
   - Embedding generation
   - Face comparison
-
+  - LFW benchmark evaluation
 ## Conclusion
 
 This project demonstrates a simple yet effective face verification pipeline using deep learning embeddings.
